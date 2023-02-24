@@ -4,52 +4,35 @@ import java.util.ArrayList;
 
 public class AddressBook {
 
-    ArrayList<Contacts> addressBook = new ArrayList<Contacts>();
+    ArrayList<Contacts> addressbook = new ArrayList<>();
+
+    public ArrayList<Contacts> getAddressbook() {
+        return addressbook;
+    }
+
+    public void setAddressbook(ArrayList<Contacts> addressbook) {
+        this.addressbook = addressbook;
+    }
 
     /*
      * Adding Contacts using addContact method in the arraylist of address book and checking duplicates entry
      */
-    public void addContact(Contacts person) {
+    public void addContact(Contacts contact) {
 
-        boolean isDuplicate = duplicateEntry(person.getFirstName(), person);
-
-        if (!isDuplicate) {
-            addressBook.add(person);
-        } else {
-            System.out.println("Person name is duplicate");
-        }
-    }
-
-    public boolean duplicateEntry(String firstname, Contacts contacts) {
-
-        /*
-         * Checking duplicate entry in address book using for-each loop if person firstname matches with
-         * the existing person first name in the address book means it is duplicate entry and return true else false
-         */
-        for (Contacts person1 : this.addressBook) {
-
-            if (person1.getFirstName().equals(firstname)) {
-                return true;
-            }
-        }
-        return false;
+        addressbook.add(contact);
     }
 
     /*
-     * Printing method to print all the contacts in the list using for each loop
+     * Printing method to print all the details in the list using for each loop
      */
-    public void printAddressBook() {
-
-        for (Contacts person : this.addressBook) {
-            System.out.println("-----------------------------------------------------");
-            System.out.println("First name = " + person.getFirstName());
-            System.out.println("last name = " + person.getLastName());
-            System.out.println("address = " + person.getAddress());
-            System.out.println("city = " + person.getCity());
-            System.out.println("state = " + person.getState());
-            System.out.println("zip = " + person.getZip());
-            System.out.println("phone number = " + person.getPhoneNumber());
-            System.out.println("-----------------------------------------------------");
-        }
+    public void printAddressBook(Contacts contact) {
+        System.out.println("-----------------------------------------------------");
+        System.out.println("First name = " + contact.getFirstName());
+        System.out.println("last name = " + contact.getLastName());
+        System.out.println("address = " + contact.getAddress());
+        System.out.println("city = " + contact.getCity());
+        System.out.println("state = " + contact.getState());
+        System.out.println("zip = " + contact.getZip());
+        System.out.println("phone number = " + contact.getPhoneNumber());
+        System.out.println("-----------------------------------------------------");
     }
-}
